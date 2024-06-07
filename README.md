@@ -130,6 +130,19 @@ systemctl enable --now bind
 nano /etc/bind/local.conf
 ```
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/754ad3e6-64da-4fa4-ad12-22e05b21a960)  
+
+```
+zone "hq.work" {
+  type master;
+  file "hq.db";
+};
+
+zone "0.0.10.in-addr.arpa" {
+  type master;
+  file "0.db";
+};
+```
+
 ```
 cp /etc/bind/zone/{localdomain,hq.db}
 cp /etc/bind/zone/{localdomain,branch.db}
