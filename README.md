@@ -1,4 +1,35 @@
-# NTP
+# Chrony Time Linux
+_________________
+Настраиваем сервер времени с параметрами необходимыми в задании:  
+```
+nano /etc/chrony.conf
+
+server 127.0.0.1 iburst prefer
+hwtimestamp *
+local stratum 5
+allow 0/0
+```
+
+Перезагружаем машину  
+Проверяем:  
+```
+chronyc sources
+chronyc tracking | grep Stratum
+timedatectl
+```
+
+Настройка клиента
+```
+nano /etc/chrony.conf
+server адрес сервера (10.0.0.1) iburst prefer
+```
+
+```
+systemctl enable --now chronyd 
+```
+Перезагружаем машину 
+__________________
+
 
 **2. Настройте синхронизацию времени между сетевыми устройствами по протоколу NTP**
 
